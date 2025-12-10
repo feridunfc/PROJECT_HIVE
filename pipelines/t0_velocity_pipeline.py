@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from core.graph_engine.state import NeuralState
 from core.swarm.coordinator import SwarmCoordinator, SwarmConfig
 from agents.cognitive.supervisor_agent import SupervisorAgent
@@ -7,20 +9,25 @@ from agents.technical.tester_agent import TesterAgent
 from agents.technical.debugger_agent import DebuggerAgent
 from core.config import settings
 
+
 class T0VelocityPipeline:
-    def __init__(self):
+    """Rapid prototyping pipeline.
+
+    Flow: Supervisor -> Architect -> Dev -> Tester -> Debugger
+    """
+
+    def __init__(self) -> None:
         self.agents = [
             SupervisorAgent(),
             ArchitectAgent(),
             DevAgent(),
             TesterAgent(),
-            DebuggerAgent()
+            DebuggerAgent(),
         ]
 
         self.swarm_config = SwarmConfig(
             agents=self.agents,
-            strategy="majority",
-            max_rounds=settings.MAX_SWARM_ROUNDS
+            max_rounds=settings.MAX_SWARM_ROUNDS,
         )
         self.coordinator = SwarmCoordinator(self.swarm_config)
 

@@ -2,11 +2,9 @@ from __future__ import annotations
 from uuid import uuid4
 from typing import Any, Dict, List, Optional
 
+
 class NeuralState:
-    """
-    Tek kaynaklı gerçek durum objesi (Single Source of Truth).
-    Enterprise uyumlu: Telemetri, Hata takibi ve Bütçe içerir.
-    """
+    """Single Source of Truth for PROJECT_HIVE runs."""
 
     def __init__(
         self,
@@ -23,16 +21,15 @@ class NeuralState:
         self.messages: List[Dict[str, Any]] = []
         self.errors: List[Dict[str, Any]] = []
         self.artifacts: Dict[str, Any] = {}
+        self.artifacts_meta: Dict[str, Dict[str, Any]] = {}
 
         self.step: int = 0
         self.budget: float = budget
         self.budget_used: float = 0.0
 
-    # --- Flow control ---
     def next_step(self) -> None:
         self.step += 1
 
-    # --- Messages ---
     def add_message(
         self,
         role: str,
@@ -48,7 +45,6 @@ class NeuralState:
         self.messages.append(msg)
         return self
 
-    # --- Errors ---
     def add_error(
         self,
         error_type: str,
@@ -64,16 +60,31 @@ class NeuralState:
         )
         return self
 
-    # --- Artifacts ---
-    def add_artifact(self, key: str, value: Any) -> "NeuralState":
+    def add_artifact(
+        self,
+        key: str,
+        value: Any,
+        artifact_type: Optional[str] = None,
+        metadata: Optional[Dict[str, Any]] = None,
+    ) -> "NeuralState":
         self.artifacts[key] = value
+        if artifact_type is not None or metadata is not None:
+            self.artifacts_meta[key] = {
+                "artifact_type": artifact_type,
+                "metadata": metadata or {},
+            }
         return self
 
-    # --- Budget ---
+    def get_artifact(self, key: str, default: Any = None) -> Any:
+        return self.artifacts.get(key, default)
+
     def update_budget(self, cost: float) -> None:
         self.budget_used += cost
 
-    # --- Serialization ---
+    @property
+    def current_phase(self) -> str:
+        return f"{self.mode}_step_{self.step}"
+
     def to_dict(self) -> Dict[str, Any]:
         return {
             "run_id": self.run_id,
@@ -84,6 +95,7 @@ class NeuralState:
             "messages": self.messages,
             "errors": self.errors,
             "artifacts": self.artifacts,
+            "artifacts_meta": self.artifacts_meta,
             "budget": self.budget,
             "budget_used": self.budget_used,
         }
