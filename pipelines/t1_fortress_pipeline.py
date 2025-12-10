@@ -19,11 +19,14 @@ class T1FortressPipeline:
     def __init__(self) -> None:
         self.policy = PolicyEngine()
 
+        # Yeni (doğru):
+        from pathlib import Path
+
         self.agents = [
             SupervisorAgent(),
             ArchitectAgent(),
-            DevAgent(),
-            TesterAgent(),
+            DevAgent(output_dir=Path("output")),  # ← Path objesi
+            TesterAgent(project_root=Path("output")),  # ← Path objesi
             DebuggerAgent(),
         ]
 

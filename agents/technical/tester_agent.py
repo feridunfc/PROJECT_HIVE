@@ -24,9 +24,40 @@ class TesterAgent(BaseAgent):
         # Bu agent LLM kullanmak zorunda değil aslında; ama interface'i tutarlı kalsın diye boş prompt döndürüyoruz.
         return "No-op."
 
+    # agents/technical/tester_agent.py (güncelle)
+
+    # agents/technical/tester_agent.py (sadece ilgili kısım)
+
     async def _process_response(self, response, state: NeuralState) -> str:
-        # LLM cevabını kullanmıyoruz; gerçek test aşağıda
-        return "Test run."
+        # ... önceki kod ...
+
+        # Syntax kontrolü
+        try:
+            with open(code_path, 'r', encoding='utf-8') as f:
+                code_content = f.read()
+            # compile the code to check syntax
+            compile(code_content, code_path, 'exec')
+            self.logger.info("Syntax check passed")
+        except SyntaxError as e:
+            self.logger.error(f"Syntax check failed: {e}")
+            state.add_artifact(
+                key="test_result",
+                value="fail",
+                artifact_type="test_result",
+                metadata={"error": f"Syntax error: {e}"}
+            )
+            return f"Syntax error: {e}"
+        except Exception as e:
+            self.logger.error(f"Failed to read/compile code: {e}")
+            state.add_artifact(
+                key="test_result",
+                value="fail",
+                artifact_type="test_result",
+                metadata={"error": str(e)}
+            )
+            return f"Failed to test code: {e}"
+
+        # ... diğer testler ...
 
     async def execute(self, state: NeuralState) -> NeuralState:
         # BaseAgent.execute yerine gerçek test mantığı

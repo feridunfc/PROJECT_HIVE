@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08a170b2-a9b1-4576-9b3f-38c34c2aea34" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/PROJECT_HIVE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PROJECT_HIVE.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/base/base_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/base/base_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/technical/dev_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/technical/dev_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/technical/tester_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/technical/tester_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipelines/t1_fortress_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipelines/t1_fortress_pipeline.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +46,15 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/FCY/PycharmProjects/PROJECT_HIVE/core",
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\FCY\PycharmProjects\PROJECT_HIVE\core" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
