@@ -1,9 +1,5 @@
-from __future__ import annotations
-
-import subprocess
-from pathlib import Path
-
-from agents.base.base_agent import AgentConfig, BaseAgent
+# agents/technical/tester_agent.py
+from agents.base.base_agent import BaseAgent, AgentConfig
 from core.graph_engine.state import NeuralState
 from core.utils.logger import get_logger
 
@@ -11,78 +7,75 @@ logger = get_logger("TesterAgent")
 
 
 class TesterAgent(BaseAgent):
-    def __init__(self, project_root: Path) -> None:
-        self.project_root = project_root
+    def __init__(self):
+        # DÜZELTME: Parametresiz init. Config içeride tanımlanıyor.
         config = AgentConfig(
-            name="Tester",
-            role="qa engineer",
-            goal="Validate that the generated code at least compiles.",
+            name="TesterAgent",
+            role="QA Engineer",
+            goal="Validate code syntax and logic.",
+            backstory="You are a meticulous tester. You check both syntax (compile) and logic (review).",
+            constraints=["Check syntax errors", "Review logic flaws"]
         )
         super().__init__(config)
 
     async def _build_user_prompt(self, state: NeuralState) -> str:
-        # Bu agent LLM kullanmak zorunda değil aslında; ama interface'i tutarlı kalsın diye boş prompt döndürüyoruz.
-        return "No-op."
+        # Kodları Artifacts'ten al
+        code_map = state.artifacts.get("generated_code", {})
 
-    # agents/technical/tester_agent.py (güncelle)
+        if not code_map:
+            return "No code found to test."
 
-    # agents/technical/tester_agent.py (sadece ilgili kısım)
+        # Kodları prompt için hazırla
+        context = ""
+        for filename, code in code_map.items():
+            context += f"\n--- FILE: {filename} ---\n```python\n{code}\n```\n"
+
+        return f"""
+        Review the following code for LOGICAL errors:
+        {context}
+
+        1. Does the code achieve the goal: "{state.goal}"?
+        2. Are there any obvious bugs?
+        3. Respond with "LOGIC PASS" if it looks good, or "LOGIC FAIL" with reasons.
+        """
 
     async def _process_response(self, response, state: NeuralState) -> str:
-        # ... önceki kod ...
+        llm_content = getattr(response, "content", str(response))
 
-        # Syntax kontrolü
-        try:
-            with open(code_path, 'r', encoding='utf-8') as f:
-                code_content = f.read()
-            # compile the code to check syntax
-            compile(code_content, code_path, 'exec')
-            self.logger.info("Syntax check passed")
-        except SyntaxError as e:
-            self.logger.error(f"Syntax check failed: {e}")
-            state.add_artifact(
-                key="test_result",
-                value="fail",
-                artifact_type="test_result",
-                metadata={"error": f"Syntax error: {e}"}
-            )
-            return f"Syntax error: {e}"
-        except Exception as e:
-            self.logger.error(f"Failed to read/compile code: {e}")
-            state.add_artifact(
-                key="test_result",
-                value="fail",
-                artifact_type="test_result",
-                metadata={"error": str(e)}
-            )
-            return f"Failed to test code: {e}"
+        # 1. Deterministik Syntax Kontrolü (Python compile)
+        syntax_passed = True
+        syntax_errors = []
 
-        # ... diğer testler ...
+        code_map = state.artifacts.get("generated_code", {})
+        for filename, code in code_map.items():
+            try:
+                # Kodu çalıştırmadan sadece derlemeyi dene (Syntax Check)
+                compile(code, filename, 'exec')
+                logger.info(f"✅ Syntax Check Passed: {filename}")
+            except SyntaxError as e:
+                syntax_passed = False
+                msg = f"SyntaxError in {filename}: line {e.lineno}, {e.msg}"
+                syntax_errors.append(msg)
+                logger.error(msg)
+                # State'e detaylı hata ekle (Debugger okusun diye)
+                state.add_error("syntax_error", msg, {"filename": filename, "lineno": e.lineno})
 
-    async def execute(self, state: NeuralState) -> NeuralState:
-        # BaseAgent.execute yerine gerçek test mantığı
-        code_path_str = state.artifacts.get("generated_code_path")
-        if not code_path_str:
-            logger.warning("No generated_code_path in state", extra={"run_id": state.run_id})
-            state.artifacts["test_result"] = "missing"
-            return state
+        # 2. LLM Mantık Kontrolü
+        logic_passed = "LOGIC PASS" in llm_content.upper() and "FAIL" not in llm_content.upper()
 
-        code_path = Path(code_path_str)
-        if not code_path.exists():
-            logger.error("Generated file missing", extra={"run_id": state.run_id, "path": code_path_str})
-            state.artifacts["test_result"] = "missing"
-            return state
+        # 3. Genel Başarı Durumu
+        final_success = syntax_passed and logic_passed
 
-        try:
-            subprocess.check_call(
-                ["python", "-m", "py_compile", str(code_path)],
-                cwd=self.project_root,
-            )
-            state.artifacts["test_result"] = "ok"
-            logger.info("Syntax check passed", extra={"run_id": state.run_id})
-        except subprocess.CalledProcessError as exc:
-            msg = f"Syntax check failed: {exc}"
-            state.artifacts["test_result"] = "fail"
-            state.add_error("syntax_error", msg, {"path": code_path_str})
-            logger.error("Syntax check failed", extra={"run_id": state.run_id, "error": str(exc)})
-        return state
+        # Test Sonucunu Kaydet
+        new_artifacts = state.artifacts.copy()
+        new_artifacts["test_results"] = {
+            "success": final_success,
+            "output": f"Syntax: {'OK' if syntax_passed else 'FAIL'}. Logic: {'OK' if logic_passed else 'FAIL'}.\nDetails: {llm_content}\nSyntax Errors: {syntax_errors}"
+        }
+        state.artifacts = new_artifacts
+
+        status_msg = "TESTS PASSED" if final_success else "TESTS FAILED"
+        if not syntax_passed:
+            status_msg += f" (Syntax Errors: {len(syntax_errors)})"
+
+        return f"{status_msg}. {llm_content[:100]}..."

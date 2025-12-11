@@ -1,0 +1,30 @@
+{
+  "session_id": "8cf94238-180e-4ebd-8bdb-93effdbd8316",
+  "run_id": "8cf94238-180e-4ebd-8bdb-93effdbd8316",
+  "goal": "Build a calculator",
+  "pipeline_type": "t1",
+  "start_time": "2025-12-11T11:21:41.192648",
+  "status": "running",
+  "metadata": {
+    "source": "cli",
+    "timestamp": 1765441300.6425128,
+    "tenant_id": "tenant_dev_key_",
+    "api_key": "dev_key_"
+  },
+  "events": [
+    {
+      "session_id": "8cf94238-180e-4ebd-8bdb-93effdbd8316",
+      "event_id": "8cf94238-180e-4ebd-8bdb-93effdbd8316_1765441301193_agent_start",
+      "event_type": "agent_start",
+      "timestamp": "2025-12-11T11:21:41.193650",
+      "agent_name": "Pipeline",
+      "data": {
+        "goal": "Build a calculator",
+        "pipeline_type": "t1",
+        "task_id": "8cf94238-180e-4ebd-8bdb-93effdbd8316"
+      },
+      "duration_ms": null,
+      "parent_event_id": null
+    }
+  ]
+}

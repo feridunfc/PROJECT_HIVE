@@ -1,20 +1,10 @@
-from __future__ import annotations
-
 from abc import ABC, abstractmethod
-from typing import Optional
-
-from core.graph_engine.state import NeuralState
-
+from .state import NeuralState
 
 class BaseNode(ABC):
-    """Graph üzerindeki her bir adım için temel node sınıfı."""
-
-    def __init__(self, name: str) -> None:
+    def __init__(self, name: str):
         self.name = name
 
     @abstractmethod
-    async def execute(self, state: NeuralState) -> NeuralState:  # pragma: no cover
-        ...
-
-    async def __call__(self, state: NeuralState) -> NeuralState:
-        return await self.execute(state)
+    async def run(self, state: NeuralState) -> NeuralState:
+        pass

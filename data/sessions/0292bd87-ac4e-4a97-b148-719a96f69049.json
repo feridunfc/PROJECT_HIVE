@@ -1,0 +1,108 @@
+{
+  "session_id": "0292bd87-ac4e-4a97-b148-719a96f69049",
+  "run_id": "0292bd87-ac4e-4a97-b148-719a96f69049",
+  "goal": "Build a simple calculator application with basic operations",
+  "pipeline_type": "T1 Fortress (Enterprise)",
+  "start_time": "2025-12-11T09:48:05.122931",
+  "status": "completed",
+  "metadata": {
+    "max_budget": 10.0,
+    "timeout": 300,
+    "debug_mode": true,
+    "require_approval": false
+  },
+  "events": [
+    {
+      "session_id": "0292bd87-ac4e-4a97-b148-719a96f69049",
+      "event_id": "0292bd87-ac4e-4a97-b148-719a96f69049_1765435685122_agent_start",
+      "event_type": "agent_start",
+      "timestamp": "2025-12-11T09:48:05.122931",
+      "agent_name": "Pipeline",
+      "data": {
+        "goal": "Build a simple calculator application with basic operations",
+        "type": "T1 Fortress (Enterprise)"
+      },
+      "duration_ms": null,
+      "parent_event_id": null
+    },
+    {
+      "session_id": "0292bd87-ac4e-4a97-b148-719a96f69049",
+      "event_id": "0292bd87-ac4e-4a97-b148-719a96f69049_1765435685151_agent_complete",
+      "event_type": "agent_complete",
+      "timestamp": "2025-12-11T09:48:05.151058",
+      "agent_name": "Researcher",
+      "data": {
+        "step": "Researching requirements...",
+        "progress": 0.2
+      },
+      "duration_ms": 1000,
+      "parent_event_id": null
+    },
+    {
+      "session_id": "0292bd87-ac4e-4a97-b148-719a96f69049",
+      "event_id": "0292bd87-ac4e-4a97-b148-719a96f69049_1765435686177_agent_complete",
+      "event_type": "agent_complete",
+      "timestamp": "2025-12-11T09:48:06.177450",
+      "agent_name": "Architect",
+      "data": {
+        "step": "Designing architecture...",
+        "progress": 0.4
+      },
+      "duration_ms": 1000,
+      "parent_event_id": null
+    },
+    {
+      "session_id": "0292bd87-ac4e-4a97-b148-719a96f69049",
+      "event_id": "0292bd87-ac4e-4a97-b148-719a96f69049_1765435687202_agent_complete",
+      "event_type": "agent_complete",
+      "timestamp": "2025-12-11T09:48:07.202642",
+      "agent_name": "Developer",
+      "data": {
+        "step": "Generating code...",
+        "progress": 0.6
+      },
+      "duration_ms": 1000,
+      "parent_event_id": null
+    },
+    {
+      "session_id": "0292bd87-ac4e-4a97-b148-719a96f69049",
+      "event_id": "0292bd87-ac4e-4a97-b148-719a96f69049_1765435688230_agent_complete",
+      "event_type": "agent_complete",
+      "timestamp": "2025-12-11T09:48:08.230031",
+      "agent_name": "Tester",
+      "data": {
+        "step": "Testing implementation...",
+        "progress": 0.8
+      },
+      "duration_ms": 1000,
+      "parent_event_id": null
+    },
+    {
+      "session_id": "0292bd87-ac4e-4a97-b148-719a96f69049",
+      "event_id": "0292bd87-ac4e-4a97-b148-719a96f69049_1765435689261_agent_complete",
+      "event_type": "agent_complete",
+      "timestamp": "2025-12-11T09:48:09.261189",
+      "agent_name": "Reviewer",
+      "data": {
+        "step": "Finalizing artifacts...",
+        "progress": 1.0
+      },
+      "duration_ms": 1000,
+      "parent_event_id": null
+    },
+    {
+      "session_id": "0292bd87-ac4e-4a97-b148-719a96f69049",
+      "event_id": "0292bd87-ac4e-4a97-b148-719a96f69049_1765435690306_agent_complete",
+      "event_type": "agent_complete",
+      "timestamp": "2025-12-11T09:48:10.306581",
+      "agent_name": "Pipeline",
+      "data": {
+        "status": "completed",
+        "artifacts_generated": true
+      },
+      "duration_ms": 5000,
+      "parent_event_id": null
+    }
+  ],
+  "end_time": "2025-12-11T09:48:10.331026"
+}

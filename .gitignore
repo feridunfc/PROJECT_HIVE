@@ -13,3 +13,5 @@ dist/
 build/
 htmlcov/
 .project_hive_logs/
+
+.venv/

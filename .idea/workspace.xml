@@ -4,39 +4,72 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08a170b2-a9b1-4576-9b3f-38c34c2aea34" name="Changes" comment="">
+    <list default="true" id="2fa748ba-c292-460c-a42e-cc0417c717af" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/core/queue/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/queue/manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/queue/worker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/sessions/0292bd87-ac4e-4a97-b148-719a96f69049.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/sessions/sessions.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interfaces/api/dependencies.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interfaces/api/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interfaces/api/websocket.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interfaces/cli/hive_cli_tr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interfaces/dashboard/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/observability/session_replay.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/demo_t1_fortress.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/test_sprint2_full_pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/PROJECT_HIVE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PROJECT_HIVE.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agents/base/base_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/base/base_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/technical/debugger_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/technical/debugger_agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agents/technical/dev_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/technical/dev_agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agents/technical/tester_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/technical/tester_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/graph_engine/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/graph_engine/engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/graph_engine/node.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/graph_engine/node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/graph_engine/state.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/graph_engine/state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/llm/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/llm/router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/policy/policy_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/policy/policy_engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/telemetry/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/telemetry/metrics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/api/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/api/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/cli/hive_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/cli/hive_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/generated_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/output/generated_app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipelines/t1_fortress_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipelines/t1_fortress_pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "feridunfc"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;feridunfc&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/feridunfc/PROJECT_HIVE.git",
-    "accountId": "6d048563-e8d2-4aae-ae98-f02520834935"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/feridunfc/PROJECT_HIVE.git&quot;,
+    &quot;accountId&quot;: &quot;3bbf0f97-e76f-4c49-b1d6-654dea2be892&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
-  <component name="ProjectId" id="36eGt97APpVguoQQokV1BODbMab" />
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="36Is2ovi9Kquyq1tQpT4q2xVHq2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -44,33 +77,61 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.generated_app.executor": "Run",
+    "Python.genesis.executor": "Run",
+    "Python.setup_env.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/FCY/PycharmProjects/PROJECT_HIVE/core",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\FCY\PycharmProjects\PROJECT_HIVE\core" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\FCY\PycharmProjects\PROJECT_HIVE" />
+      <recent name="C:\Users\user\PycharmProjects\PROJECT_HIVE" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-af26db0dccfe-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.26775.22" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.27397.106" />
+        <option value="bundled-python-sdk-4e2b1448bda8-9a97661f3031-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.27397.106" />
       </set>
     </attachedChunks>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="08a170b2-a9b1-4576-9b3f-38c34c2aea34" name="Changes" comment="" />
-      <created>1765359836111</created>
+      <changelist id="2fa748ba-c292-460c-a42e-cc0417c717af" name="Changes" comment="" />
+      <created>1764705217510</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1765359836111</updated>
+      <updated>1764705217510</updated>
+      <workItem from="1764705218530" duration="2286000" />
+      <workItem from="1765219884923" duration="2643000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PROJECT_HIVE$genesis.coverage" NAME="genesis Coverage Results" MODIFIED="1765219998330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/PROJECT_HIVE$setup_env.coverage" NAME="setup_env Coverage Results" MODIFIED="1764706138516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

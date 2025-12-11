@@ -45,8 +45,7 @@ def main():
     except ValueError:
         print("Error: Please enter valid numbers")
     except KeyboardInterrupt:
-        print("
-Calculator closed")
+        print("Calculator closed")
 
 if __name__ == "__main__":
     main()
